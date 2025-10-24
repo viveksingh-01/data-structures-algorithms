@@ -4,8 +4,12 @@
  * @returns true if the number is a Palindrome, false otherwise
  */
 function checkPalindrome(n: number): boolean {
-  const reversedNumber = getReversedNumber(n);
-  if (reversedNumber == n) {
+  const num = Math.abs(n);
+
+  if (num == 0) return true;
+
+  const reversedNumber = getReversedNumber(num);
+  if (reversedNumber == num) {
     return true;
   }
   return false;
