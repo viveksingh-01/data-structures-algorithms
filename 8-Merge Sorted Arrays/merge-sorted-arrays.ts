@@ -31,3 +31,24 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
     }
   }
 }
+
+/**
+ * APPROACH-2
+ * Using Two-pointers, iterate from last compare the elements in both the arrays
+ * and fill the nums1 array with the larger number from last.
+ * Time complexity: O(m+n)
+ * Space complexity: O(1)
+ */
+function mergeOptimized(nums1: number[], m: number, nums2: number[], n: number): void {
+  let p1 = m - 1;
+  let p2 = n - 1;
+  for (let i = m + n - 1; i >= 0; i--) {
+    if ((p1 >= 0 && nums1[p1] > nums2[p2]) || p2 < 0) {
+      nums1[i] = nums1[p1];
+      p1--;
+    } else {
+      nums1[i] = nums2[p2];
+      p2--;
+    }
+  }
+}
